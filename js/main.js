@@ -379,6 +379,7 @@ function init() {
     setupPanelToggle();
     setupKeyboardShortcuts();
     Search.setup();
+    AiPrompts.setup();
     renderCustomToolboxCards();
 
     // Auto-save every 30 seconds

@@ -215,8 +215,23 @@ function setupTopBar() {
 // ── Modals setup ──────────────────────────────────────────────
 
 function setupSwitchModal() {
+    const sel = document.getElementById('modal-port-count');
+    const customRow = document.getElementById('modal-custom-port-row');
+    const customInput = document.getElementById('modal-port-count-custom');
+
+    sel.addEventListener('change', () => {
+        const isCustom = sel.value === 'custom';
+        customRow.style.display = isCustom ? '' : 'none';
+        if (isCustom) customInput.focus();
+    });
+
     document.getElementById('modal-ok').addEventListener('click', () => {
-        const portCount = parseInt(document.getElementById('modal-port-count').value, 10);
+        let portCount;
+        if (sel.value === 'custom') {
+            portCount = Math.max(1, parseInt(customInput.value, 10) || 1);
+        } else {
+            portCount = parseInt(sel.value, 10);
+        }
         if (_pendingDropPos) {
             pushUndo();
             const device = Devices.createDevice('switch', _pendingDropPos.x, _pendingDropPos.y, { portCount });
@@ -228,12 +243,20 @@ function setupSwitchModal() {
             render();
         }
         document.getElementById('modal-overlay').classList.add('hidden');
+        sel.value = '24';
+        customRow.style.display = 'none';
     });
     document.getElementById('modal-cancel').addEventListener('click', () => {
         _pendingDropPos = null;
         document.getElementById('modal-overlay').classList.add('hidden');
+        sel.value = '24';
+        customRow.style.display = 'none';
     });
-    document.getElementById('modal-port-count').addEventListener('keydown', e => {
+    sel.addEventListener('keydown', e => {
+        if (e.key === 'Enter') document.getElementById('modal-ok').click();
+        if (e.key === 'Escape') document.getElementById('modal-cancel').click();
+    });
+    customInput.addEventListener('keydown', e => {
         if (e.key === 'Enter') document.getElementById('modal-ok').click();
         if (e.key === 'Escape') document.getElementById('modal-cancel').click();
     });

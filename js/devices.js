@@ -96,9 +96,9 @@ const Devices = (() => {
                 ? ['WAN', 'LAN1', 'LAN2', 'LAN3']
                 : Array.from({ length: portCount }, (_, i) => i === 0 ? 'WAN' : `LAN${i}`);
         } else if (type === 'server') {
-            portDefs = Array.from({ length: portCount }, (_, i) => `NIC${i + 1}`);
+            portDefs = Array.from({ length: portCount }, (_, i) => `LAN${i + 1}`);
         } else if (type === 'pc') {
-            portDefs = Array.from({ length: portCount }, (_, i) => i === 0 ? 'ETH0' : `ETH${i}`);
+            portDefs = Array.from({ length: portCount }, (_, i) => `LAN${i + 1}`);
         }
 
         const ports = portDefs.map(label => ({

@@ -80,7 +80,7 @@
                 </div>
                 <div>
                     <div class="device-card-label">Server</div>
-                    <div class="device-card-sub">NIC ports</div>
+                    <div class="device-card-sub">LAN ports</div>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@
                 </div>
                 <div>
                     <div class="device-card-label">PC / Workstation</div>
-                    <div class="device-card-sub">ETH port</div>
+                    <div class="device-card-sub">LAN port</div>
                 </div>
             </div>
 
@@ -167,7 +167,12 @@
                 <option value="16">16 ports</option>
                 <option value="24" selected>24 ports</option>
                 <option value="48">48 ports</option>
+                <option value="custom">Custom…</option>
             </select>
+        </div>
+        <div class="modal-row" id="modal-custom-port-row" style="display:none">
+            <label for="modal-port-count-custom">Custom count</label>
+            <input type="number" id="modal-port-count-custom" value="12" min="1" max="256">
         </div>
         <div class="modal-actions">
             <button id="modal-cancel">Cancel</button>

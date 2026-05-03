@@ -1,0 +1,78 @@
+/* ── Modal overlay (shared by both modals) ─────────────────── */
+
+#modal-custom,
+#modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px 24px;
+    min-width: 260px;
+    max-width: 340px;
+    width: 100%;
+}
+
+.modal-box h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: #111;
+}
+
+.modal-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+}
+
+.modal-row label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #777;
+}
+
+.modal-row select,
+.modal-row input[type="text"] {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #111;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 5px 8px;
+    border-radius: 2px;
+    outline: none;
+    width: 100%;
+}
+.modal-row select:focus,
+.modal-row input:focus {
+    border-color: #999;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 6px;
+}
+
+.modal-actions button {
+    padding: 5px 16px;
+}
+
+#modal-ok {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+#modal-ok:hover { background: #333; }

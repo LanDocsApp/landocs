@@ -1,0 +1,450 @@
+/* ── Left toolbox ──────────────────────────────────────────── */
+
+#toolbox {
+    width: 200px;
+    flex-shrink: 0;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    overflow-y: auto;
+}
+
+.toolbox-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #777;
+    padding: 10px 12px 6px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Device cards */
+.device-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 8px;
+    padding: 7px 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    cursor: grab;
+    background: #fff;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.device-card:hover { background: #f5f5f5; border-color: #bbb; }
+.device-card:active { cursor: grabbing; }
+
+.device-card-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+}
+.device-card-icon svg { width: 16px; height: 16px; }
+
+.icon-switch  { background: #e0f7fa; border: 1px solid #00838f; }
+.icon-router  { background: #fff3e0; border: 1px solid #e65100; }
+.icon-server  { background: #e8eaf6; border: 1px solid #3949ab; }
+.icon-pc      { background: #f1f8e9; border: 1px solid #558b2f; }
+.icon-custom  { background: #f5f5f5; border: 1px solid #888; }
+
+.device-card-label { font-size: 12px; color: #111; }
+.device-card-sub   { font-size: 10px; color: #888; margin-top: 1px; }
+
+/* ── Custom saved types ────────────────────────────────────── */
+
+#custom-toolbox-section {
+    border-top: 1px solid #e0e0e0;
+}
+
+.custom-card-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-type-rm {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 2px;
+    flex-shrink: 0;
+    border-radius: 2px;
+}
+.custom-type-rm:hover { color: #c62828; background: #ffebee; }
+
+/* ── Shortcuts section ─────────────────────────────────────── */
+
+.toolbox-shortcuts {
+    margin-top: auto;
+    border-top: 1px solid #e0e0e0;
+    padding: 6px 0 8px;
+}
+
+.shortcuts-title {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #999;
+    padding: 4px 10px 4px;
+}
+
+.shortcut-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 10px;
+    gap: 6px;
+}
+
+.shortcut-row kbd {
+    font-family: system-ui, sans-serif;
+    font-size: 10px;
+    color: #444;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 1px 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.shortcut-row span {
+    font-size: 10px;
+    color: #888;
+    text-align: right;
+    flex: 1;
+}
+
+/* ── Always-visible panel toggle strip ─────────────────────── */
+
+#panel-toggle-strip {
+    width: 14px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    cursor: pointer;
+    color: #888;
+    font-size: 13px;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: background 0.1s;
+}
+#panel-toggle-strip:hover { background: #e8e8e8; color: #333; }
+
+.toggle-arrow { pointer-events: none; }
+
+/* ── Right config panel ────────────────────────────────────── */
+
+#config-panel {
+    width: 280px;
+    flex-shrink: 0;
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    overflow: hidden;
+    transition: width 0.18s ease;
+}
+#config-panel.collapsed { width: 0; }
+
+#config-panel-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+#config-panel-header h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#config-panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 12px;
+    min-width: 256px;
+}
+
+.panel-empty {
+    color: #aaa;
+    font-size: 12px;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.panel-header { margin-bottom: 10px; }
+
+.type-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    color: #555;
+}
+.type-badge.type-switch { background: #e0f7fa; border-color: #00838f; color: #00838f; }
+.type-badge.type-router { background: #fff3e0; border-color: #e65100; color: #e65100; }
+.type-badge.type-server { background: #e8eaf6; border-color: #3949ab; color: #3949ab; }
+.type-badge.type-pc     { background: #f1f8e9; border-color: #558b2f; color: #558b2f; }
+.type-badge.type-custom { background: #f5f5f5; border-color: #888; color: #555; }
+
+.panel-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 10px;
+}
+.panel-row label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #777;
+}
+.panel-row input[type="text"],
+.panel-row input[type="color"],
+.panel-row textarea {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: #111;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 5px 7px;
+    border-radius: 2px;
+    width: 100%;
+    outline: none;
+}
+.panel-row input:focus,
+.panel-row textarea:focus { border-color: #aaa; }
+.panel-row input[type="color"] { padding: 2px 4px; height: 28px; cursor: pointer; }
+.panel-row textarea { resize: vertical; }
+
+.tag-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+.tag-chip {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 7px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f5f5f5;
+    color: #555;
+}
+
+/* ── Ports section ─────────────────────────────────────────── */
+
+.panel-section { margin-top: 8px; }
+
+.ports-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 6px;
+}
+.panel-section-title {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #777;
+}
+
+.btn-tiny {
+    font-size: 10px;
+    padding: 2px 7px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    cursor: pointer;
+    color: #333;
+}
+.btn-tiny:hover { background: #f0f0f0; }
+
+.ports-list { display: flex; flex-direction: column; gap: 3px; }
+
+.port-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.port-name-input {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    color: #111;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 3px 5px;
+    border-radius: 2px;
+    flex: 1;
+    min-width: 0;
+    outline: none;
+}
+.port-name-input:focus { border-color: #aaa; }
+
+.port-conn-info {
+    font-size: 10px;
+    flex-shrink: 0;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ── Connection panel ──────────────────────────────────────── */
+
+.conn-endpoints {
+    font-size: 11px;
+    color: #555;
+    padding: 8px 0 4px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 4px;
+    word-break: break-all;
+}
+
+.status-up   { color: #2e7d32; border-color: #81c784; background: #f1f8e9; }
+.status-down { color: #b71c1c; border-color: #ef9a9a; background: #ffebee; }
+
+/* ── Delete button ─────────────────────────────────────────── */
+
+button.btn-delete {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 6px;
+    color: #c62828;
+    border-color: #e57373;
+    border-radius: 2px;
+}
+button.btn-delete:hover { background: #ffebee; }
+
+button.btn-tiny-danger {
+    padding: 2px 5px;
+    font-size: 11px;
+    color: #c62828;
+    border-color: #e57373;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+button.btn-tiny-danger:hover { background: #ffebee; }
+
+/* ── Search overlay ────────────────────────────────────────── */
+
+#search-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 800;
+    background: rgba(0, 0, 0, 0.22);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+}
+#search-overlay.hidden { display: none; }
+
+.search-box {
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 440px;
+    max-width: 92vw;
+    max-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+#search-input {
+    flex: 1;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    border-radius: 2px;
+    outline: none;
+    color: #111;
+}
+#search-input:focus { border-color: #999; }
+
+#search-close {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+#search-close:hover { color: #333; background: #f0f0f0; }
+
+#search-list {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+.search-row:hover { background: #f5f5f5; }
+.search-row:last-child { border-bottom: none; }
+
+.search-name {
+    flex: 1;
+    font-size: 12px;
+    color: #111;
+    font-family: system-ui, sans-serif;
+}
+.search-ip {
+    font-size: 11px;
+    color: #888;
+    flex-shrink: 0;
+    font-family: monospace;
+}
+.search-empty {
+    padding: 20px 12px;
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    font-family: system-ui, sans-serif;
+}
